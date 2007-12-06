@@ -64,10 +64,6 @@ ant -verbose
 %{__cp} -pr build/doc/* %{buildroot}%{_javadocdir}/%{name}-%{version}
 (cd %{buildroot}%{_javadocdir} && ln -sf %{name}-%{version} %{name})
 
-%if %{gcj_support}
-%{_bindir}/aot-compile-rpm
-%endif
-
 %clean
 %{__rm} -rf %{buildroot}
 
@@ -80,30 +76,10 @@ if [ $1 -eq 0 ]; then
   %{__rm} -f %{_javadocdir}/%{name}
 fi
 
-%post
-%if %{gcj_support}
-if [ -x %{_bindir}/rebuild-gcj-db ]
-then
-  %{_bindir}/rebuild-gcj-db
-fi
-%endif
-
-%postun
-%if %{gcj_support}
-if [ -x %{_bindir}/rebuild-gcj-db ]
-then
-  %{_bindir}/rebuild-gcj-db
-fi
-%endif
-
 %files
 %defattr(-,root,root)
 %doc License.txt ReleaseNotes.txt ChangeLog.txt
 %{_javadir}/*
-
-%if %{gcj_support}
-%attr(-,root,root) %{_libdir}/gcj/%{name}
-%endif
 
 %files javadoc
 %defattr(-,root,root)
