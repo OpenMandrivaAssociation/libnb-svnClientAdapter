@@ -2,7 +2,7 @@
 
 Name:		libnb-svnClientAdapter
 Version:	6.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 Epoch:		0
 Summary:        Subversion Client Adapter
 License:        Apache License
@@ -11,7 +11,7 @@ Group:		Development/Java
 # svn version 3087
 Source0:        svnClientAdapter-rev-3087.zip
 Patch0:         adapter.patch
-BuildRequires:	jpackage-utils >= 1.6
+BuildRequires:	java-rpmbuild >= 1.6
 BuildRequires:  ant
 BuildRequires:  ant-nodeps
 BuildRequires:  ant-junit
