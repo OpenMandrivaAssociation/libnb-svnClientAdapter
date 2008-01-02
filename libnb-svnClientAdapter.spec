@@ -19,6 +19,7 @@ BuildRequires:  java >= 1.6.0
 Requires:       java >= 1.6.0
 Requires:       subversion >= 1.4.5
 BuildArch:      noarch
+BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 SvnClientAdapter is a higher level API (comparing to javahl ...). 
