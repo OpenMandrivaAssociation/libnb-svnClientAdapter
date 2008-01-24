@@ -1,16 +1,14 @@
 %define section		free
 
 Name:		libnb-svnClientAdapter
-Version:	6.0
-Release:	%mkrel 3
+Version:	6.0.1
+Release:	%mkrel 1
 Epoch:		0
 Summary:        Subversion Client Adapter
 License:        Apache License
 Url:            http://subversion.netbeans.org/teepee/svnclientadapter.html
-Group:		Development/Java
-# svn version 3087
-Source0:        svnClientAdapter-rev-3087.zip
-Patch0:         adapter.patch
+Group:          Development/Java
+Source0:        http://subversion.netbeans.org/files/documents/193/1800/svnClientAdapter-nb6.0.1-src.zip
 BuildRequires:	java-rpmbuild >= 1.6
 BuildRequires:  ant
 BuildRequires:  ant-nodeps
@@ -30,9 +28,8 @@ This is a NetBeans forked version of SvnClientAdapter.
 
 %prep
 %{__rm} -fr %{buildroot}
-%{__rm} -fr svnClientAdapter-netbeans6.0
-%setup -c -n svnClientAdapter-netbeans6.0
-%patch0
+%{__rm} -fr svnClientAdapter-nb6.0.1-src
+%setup -n svnClientAdapter-nb6.0.1-src
 # remove all binary libs
 find . -name "*.jar" -exec %{__rm} -f {} \;
 
