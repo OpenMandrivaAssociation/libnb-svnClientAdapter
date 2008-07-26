@@ -2,7 +2,7 @@
 
 Name:		libnb-svnClientAdapter
 Version:	6.0.1
-Release:	%mkrel 1
+Release:	%mkrel 3
 Epoch:		0
 Summary:        Subversion Client Adapter
 License:        Apache License
