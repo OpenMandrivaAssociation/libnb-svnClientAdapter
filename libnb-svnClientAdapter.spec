@@ -1,7 +1,7 @@
 %define section		free
 
 Name:		libnb-svnClientAdapter
-Version:	6.0.1
+Version:	6.1
 Release:	%mkrel 3
 Epoch:		0
 Summary:        Subversion Client Adapter
@@ -16,6 +16,7 @@ BuildRequires:  ant-junit
 BuildRequires:  java >= 1.6.0
 Requires:       java >= 1.6.0
 Requires:       subversion >= 1.4.5
+Provides:       libnb-svnclientadapter = 6.1
 BuildArch:      noarch
 BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root
 
