@@ -2,7 +2,7 @@
 
 Name:		libnb-svnClientAdapter
 Version:	6.1
-Release:	%mkrel 3
+Release:	%mkrel 2
 Epoch:		0
 Summary:        Subversion Client Adapter
 License:        Apache License
@@ -17,6 +17,7 @@ BuildRequires:  java >= 1.6.0
 Requires:       java >= 1.6.0
 Requires:       subversion >= 1.4.5
 Provides:       libnb-svnclientadapter = 6.1
+Provides:       netbeans-svnclientadapter = 6.1
 BuildArch:      noarch
 BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root
 
