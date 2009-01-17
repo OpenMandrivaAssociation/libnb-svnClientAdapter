@@ -23,8 +23,10 @@ BuildRequires:  ant
 BuildRequires:  ant-nodeps
 BuildRequires:  ant-junit
 BuildRequires:  java >= 1.6.0
+BuildRequires:  svn-javahl >= 1.5.5
 Requires:       java >= 1.6.0
 Requires:       subversion >= 1.4.5
+Requires:       svn-javahl >= 1.5.5
 Provides:       libnb-svnclientadapter = %{version}
 Provides:       netbeans-svnclientadapter = %{version}
 BuildArch:      noarch
