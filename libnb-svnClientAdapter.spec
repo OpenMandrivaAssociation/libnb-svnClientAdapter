@@ -1,60 +1,66 @@
-%define section		free
+# Prevent brp-java-repack-jars from being run.
+%global __jar_repack %{nil}
 
-Name:		libnb-svnClientAdapter
-Version:	6.5
-Release:	%mkrel 2
-Epoch:		0
+%global nb_            netbeans
+%global nb_org         %{nb_}.org
+%global nb_ver         6.7.1
+
+%global svnCA          svnClientAdapter
+%global svnCA_ver      1.6.0
+
+Name:           libnb-svnClientAdapter
+Version:        %{nb_ver}
+Release:        %mkrel 1
 Summary:        Subversion Client Adapter
-License:        Apache License
-Url:            http://subversion.netbeans.org/teepee/svnclientadapter.html
+
+License:        ASL 2.0
+Url:            http://subclipse.tigris.org/svnClientAdapter.html
 Group:          Development/Java
-%define svnCA_ver      1.4.0
+
 # The source for this package was pulled from upstream's vcs.  Use the
 # following commands to generate the tarball:
-# svn --username guest co \
-#     http://subclipse.tigris.org/svn/subclipse/tags/subclipse/%{svnCA_ver}/svnClientAdapter \
-#     svnClientAdapter
-# tar -czvf svnClientAdapter-%{svnCA_ver}.tar.gz svnClientAdapter
-Source0:        svnClientAdapter-%{svnCA_ver}.tar.gz
+# svn export --force --username guest -r4383 \
+#     http://subclipse.tigris.org/svn/subclipse/trunk/svnClientAdapter/ \
+#     svnClientAdapter-1.6.0
+# tar -czvf svnClientAdapter-1.6.0.tar.gz svnClientAdapter-1.6.0
+Source0:        %{svnCA}-%{svnCA_ver}.tar.gz
+Patch0:         %{svnCA}-%{svnCA_ver}-build.patch
 
-Patch0:         svnClientAdapter-%{svnCA_ver}-build.patch
-BuildRequires:	java-rpmbuild >= 1.6
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildArch:      noarch
+
 BuildRequires:  ant
 BuildRequires:  ant-nodeps
 BuildRequires:  ant-junit
-BuildRequires:  java >= 1.6.0
-BuildRequires:  svn-javahl >= 1.5.5
+BuildRequires:  java-devel >= 1.6.0
+BuildRequires:  jpackage-utils
+BuildRequires:  svn-javahl
+BuildRequires:  java-rpmbuild >= 0:1.5.32
+
 Requires:       java >= 1.6.0
-Requires:       subversion >= 1.4.5
-Requires:       svn-javahl >= 1.5.5
-Provides:       libnb-svnclientadapter = %{version}
-Provides:       netbeans-svnclientadapter = %{version}
-BuildArch:      noarch
-BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root
+Requires:       jpackage-utils
+Requires:       subversion
+Provides:       %{nb_}-svnclientadapter = 6.7.1
 
 %description
-SvnClientAdapter is a higher level API (comparing to javahl ...). 
-That's why svnClientAdapter is easier to use in many cases.
-For example, you can use ISVNClientAdapter  
-addToIgnoredPatterns method to add a pattern of files to ignore to a directory.
-This is a NetBeans forked version of SvnClientAdapter.
+SVNClientAdapter is a high-level Java API for Subversion.
 
 %prep
-%{__rm} -fr %{buildroot}
-%{__rm} -fr svnClientAdapter-nb6.0.1-src
-%setup -q -n svnClientAdapter
+%setup -q -n %{svnCA}-%{svnCA_ver}
+
 # remove all binary libs
 find . -name "*.jar" -exec %{__rm} -f {} \;
 
 %patch0 -p1 -b .sav
 
-%{__ln_s} -f %{_javadir}//svnkit-javahl.jar lib/svnjavahl.jar
+%{__ln_s} -f %{_javadir}/svnkit-javahl.jar lib/svnjavahl.jar
 
 %build
 [ -z "$JAVA_HOME" ] && export JAVA_HOME=%{_jvmdir}/java 
 ant -verbose svnClientAdapter.jar
 
 %install
+%{__rm} -fr %{buildroot}
 # jar
 %{__install} -d -m 755 %{buildroot}%{_javadir}
 %{__install} -m 644 build/lib/svnClientAdapter.jar %{buildroot}%{_javadir}/%{name}-%{version}.jar
