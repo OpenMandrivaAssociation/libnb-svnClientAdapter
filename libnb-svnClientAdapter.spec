@@ -10,7 +10,7 @@
 
 Name:           libnb-svnClientAdapter
 Version:        %{nb_ver}
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        Subversion Client Adapter
 
 License:        ASL 2.0
