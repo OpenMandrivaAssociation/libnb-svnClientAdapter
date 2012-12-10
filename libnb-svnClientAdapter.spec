@@ -74,3 +74,57 @@ ant -verbose svnClientAdapter.jar
 %doc license.txt readme.txt
 %{_javadir}/*
 
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 6.7.1-2mdv2011.0
++ Revision: 620166
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 25 2009 Jaroslav Tulach <jtulach@mandriva.org> 6.7.1-1mdv2010.0
++ Revision: 448802
+- Updating to adapter provided by NetBeans 6.7.1
+
+* Sun Sep 13 2009 Thierry Vignaud <tv@mandriva.org> 0:6.5-2mdv2010.0
++ Revision: 438716
+- rebuild
+
+* Sat Jan 17 2009 Jaroslav Tulach <jtulach@mandriva.org> 0:6.5-1mdv2009.1
++ Revision: 330470
+- Updating to version of the adapter that is present in NetBeans 6.5
+
+* Fri Aug 15 2008 Jaroslav Tulach <jtulach@mandriva.org> 0:6.1-4mdv2009.0
++ Revision: 272357
+- Also providing netbeans-svnclientadapter to satisfy netbeans-ide's dependency
+- Also providing netbeans-svnclientadapter to satisfy netbeans-ide's dependency
+
+* Wed Aug 13 2008 Jaroslav Tulach <jtulach@mandriva.org> 0:6.1-3mdv2009.0
++ Revision: 271350
+- Updating for 6.1
+
+* Sat Jul 26 2008 Thierry Vignaud <tv@mandriva.org> 0:6.0.1-3mdv2009.0
++ Revision: 250299
+- rebuild
+
+* Thu Jan 24 2008 Jaroslav Tulach <jtulach@mandriva.org> 0:6.0.1-1mdv2008.1
++ Revision: 157642
+- Upgrade to version 6.0.1
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sun Dec 16 2007 Anssi Hannula <anssi@mandriva.org> 0:6.0-3mdv2008.1
++ Revision: 120971
+- buildrequire java-rpmbuild, i.e. build with icedtea on x86(_64)
+
+* Mon Dec 10 2007 Jaroslav Tulach <jtulach@mandriva.org> 0:6.0-2mdv2008.1
++ Revision: 116985
+- Using pristine sources from svn repository rev. 3087, plus a modification patch
+
+* Thu Dec 06 2007 Jaroslav Tulach <jtulach@mandriva.org> 0:6.0-1mdv2008.1
++ Revision: 115856
+- create libnb-svnClientAdapter
+
