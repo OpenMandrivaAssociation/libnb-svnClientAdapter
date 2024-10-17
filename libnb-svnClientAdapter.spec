@@ -14,7 +14,7 @@ Release:        3
 Summary:        Subversion Client Adapter
 
 License:        ASL 2.0
-Url:            http://subclipse.tigris.org/svnClientAdapter.html
+Url:            https://subclipse.tigris.org/svnClientAdapter.html
 Group:          Development/Java
 
 # The source for this package was pulled from upstream's vcs.  Use the
